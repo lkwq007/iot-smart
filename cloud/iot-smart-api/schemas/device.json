@@ -1,0 +1,183 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "device": {
+      "type": "object",
+      "properties": {
+        "op": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "sensor",
+            "controller"
+          ]
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "z": {
+                  "type": "number"
+                },
+                "ax": {
+                  "type": "number"
+                },
+                "ay": {
+                  "type": "number"
+                },
+                "az": {
+                  "type": "number"
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "z",
+                  "ax",
+                  "ay",
+                  "az"
+                ]
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "temperature": {
+                  "type": "integer"
+                },
+                "humidity": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "temperature",
+                "humidity"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "power": {
+                  "type": "boolean"
+                },
+                "channel": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "volume": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "power",
+                "channel",
+                "volume"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "op",
+        "id",
+        "type"
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "allOf": [
+        {
+          "$ref": "#/definitions/device"
+        },
+        {
+          "properties": {
+            "op": {
+              "enum": [
+                "create"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "type",
+            "value"
+          ]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "$ref": "#/definitions/device"
+        },
+        {
+          "properties": {
+            "op": {
+              "enum": [
+                "delete",
+                "query",
+                "query_all",
+                "stat"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "allOf": [
+        {
+          "$ref": "#/definitions/device"
+        },
+        {
+          "properties": {
+            "op": {
+              "enum": [
+                "modify"
+              ]
+            }
+          }
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "value"
+              ]
+            },
+            {
+              "required": [
+                "name"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

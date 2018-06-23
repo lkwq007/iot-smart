@@ -1,0 +1,87 @@
+[
+  {
+    "id": 5,
+    "name": "LED1",
+    "type": "controller"
+  },
+  {
+    "id": 6,
+    "name": "LED2",
+    "type": "controller"
+  },
+  {
+    "id": 9,
+    "name": "Heater",
+    "type": "controller"
+  },
+  {
+    "id": 15,
+    "name": "FAN1",
+    "type": "controller"
+  },
+  {
+    "id": 16,
+    "name": "FAN2",
+    "type": "controller"
+  },
+  {
+    "id": 20,
+    "name": "CURTAIN",
+    "type": "controller"
+  },
+  {
+    "id": 21,
+    "name": "CLOTH",
+    "type": "controller"
+  },
+  {
+    "id": 30,
+    "name": "RED",
+    "type": "sensor"
+  },
+  {
+    "id": 31,
+    "name": "HOLE",
+    "type": "sensor"
+  },
+  {
+    "id": 40,
+    "name": "T1",
+    "type": "sensor"
+  },
+  {
+    "id": 41,
+    "name": "T2",
+    "type": "sensor"
+  },
+  {
+    "id": 42,
+    "name": "T3",
+    "type": "sensor"
+  },
+  {
+    "id": 43,
+    "name": "L1",
+    "type": "sensor"
+  },
+  {
+    "id": 44,
+    "name": "L2",
+    "type": "sensor"
+  },
+  {
+    "id": 45,
+    "name": "L3",
+    "type": "sensor"
+  },
+  {
+    "id": 50,
+    "name": "AXES",
+    "type": "sensor"
+  },
+  {
+    "id": 51,
+    "name": "TV",
+    "type": "controller"
+  }
+]
